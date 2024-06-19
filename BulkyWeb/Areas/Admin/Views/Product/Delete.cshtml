@@ -1,0 +1,71 @@
+﻿@model ProductVM
+
+<div class="container mt-4">
+    <div class="card shadow border-0">
+        <div class="card-header bg-secondary bg-gradient m-0 py-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-dark py-2">Delete Product</h2>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-4">
+            <form method="post">
+                <input asp-for="Product.Id" hidden />
+                <div class="form-group">
+                    <label asp-for="Product.Title" class="control-label"></label>
+                    <input asp-for="Product.Title" class="form-control" disabled />
+                    
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.Description" class="control-label"></label>
+                    <textarea asp-for="Product.Description" class="form-control border-0 shadow" disabled></textarea>
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.Director" class="control-label"></label>
+                    <input asp-for="Product.Director" class="form-control" disabled/>
+                  
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.ListPrice" class="control-label"></label>
+                    <input asp-for="Product.ListPrice" class="form-control" disabled/>
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.Price" class="control-label"></label>
+                    <input asp-for="Product.Price" class="form-control" disabled/>
+                  
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.Price50" class="control-label"></label>
+                    <input asp-for="Product.Price50" class="form-control" disabled/>
+                   
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product.Price100" class="control-label"></label>
+                    <input asp-for="Product.Price100" class="form-control" disabled/>
+                 
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Product.CategoryId" class="control-label"></label>
+                    <select asp-for="@Model.Product.CategoryId" asp-items="@Model.CategoryList" class="form-select" disabled>
+                        <option disabled selected>--Select A Category--</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
